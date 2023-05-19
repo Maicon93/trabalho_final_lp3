@@ -1,0 +1,34 @@
+ordem de producao
+  id
+  id_produto
+  quantidade
+  id_cliente
+  data_entrega
+
+itens ordem de producao
+  id
+  id_ordem
+  id_produto
+  quantidade
+
+produto
+  id
+  descricao
+  cor
+  largura
+  altura
+  comprimento
+
+componentes_produto
+  id
+  id_produto
+  id_componente
+  quantidade
+  observacao
+
+cliente
+  id
+  cpf
+  nome
+  cidade
+  data_nascimento

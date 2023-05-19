@@ -1,0 +1,40 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API - HORUS",
+    "description": "Documentação da API HORUS"
+  },
+  "host": "localhost:3000",
+  "basePath": "",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/teste/": {
+      "post": {
+        "tags": [
+          "aluno"
+        ],
+        "summary": "Cadastro de alunos",
+        "description": "Teste de descricao",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    }
+  }
+}
