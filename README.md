@@ -12,3 +12,6 @@ docker build -t horus_final .
 
 ## rodar
 docker run -d -p 5434:5432 --name projeto_final horus_final
+
+# ver documentação
+http://localhost:3000/docs

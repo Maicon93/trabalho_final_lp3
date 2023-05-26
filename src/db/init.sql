@@ -12,9 +12,8 @@ CREATE TABLE produto (
   id SERIAL PRIMARY KEY,
   descricao VARCHAR(255) NOT NULL,
   cor VARCHAR(50),
-  largura DECIMAL,
-  altura DECIMAL,
-  comprimento DECIMAL
+  tipo_produto VARCHAR(50) NOT NULL,
+  origem VARCHAR(50)
 );
 
 -- Tabela componentes_produto

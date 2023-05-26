@@ -1,29 +1,28 @@
 ordem de producao
-  id
-  id_produto
-  quantidade
-  id_cliente
+  id                1
+  id_produto        1 - notebook
+  quantidade        10
+  id_cliente        1
   data_entrega
 
 itens ordem de producao
-  id
-  id_ordem
-  id_produto
-  quantidade
+  id                1   2
+  id_ordem          1   1
+  id_produto        2   4
+  quantidade        5   3
 
 produto
-  id
-  descricao
-  cor
-  largura
-  altura
-  comprimento
+  id                2
+  descricao         mouse
+  cor               preto
+  tipo_produto      Produto Acabado
+  origem            Produção Interna/Compra Externa
 
 componentes_produto
-  id
-  id_produto
-  id_componente
-  quantidade
+  id                1
+  id_produto        1
+  id_componente     2 - mouse
+  quantidade        1
   observacao
 
 cliente

@@ -18,22 +18,103 @@
     "application/json"
   ],
   "paths": {
-    "/teste/": {
+    "/cadastrar-produto/": {
       "post": {
         "tags": [
-          "aluno"
+          "Produto"
         ],
-        "summary": "Cadastro de alunos",
+        "summary": "Cadastro de Produto",
         "description": "Teste de descricao",
         "parameters": [],
         "responses": {
-          "201": {
-            "description": "Criado"
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Erro Interno do Servidor"
           }
         }
+      }
+    },
+    "/get-produto/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/update-produto/": {
+      "patch": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/delete-produto/{id}": {
+      "delete": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Delete Produto",
+        "description": "Teste de descricao",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/cadastrar-cliente/": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/get-cliente/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/update-cliente/": {
+      "patch": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/delete-cliente/{id}": {
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
       }
     }
   }

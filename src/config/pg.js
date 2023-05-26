@@ -3,8 +3,8 @@ const { Pool } = require('pg');
 const pool = new Pool({
   user: 'admin',
   host: 'localhost',
-  database: 'horusdb',
-  password: '123456789',
+  database: 'horus_final',
+  password: '1',
   port: 5434
 });
 

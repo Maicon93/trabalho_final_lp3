@@ -15,6 +15,9 @@ const doc = {
 }
 
 const outputFile = './src/docs/swagger.yaml'
-const endpointsFiles = ['./src/routes/producaoRoute.js']
+const endpointsFiles = [
+    './src/routes/produtoRoute.js',
+    './src/routes/clienteRoute.js',
+]
 
 swaggerAutogen(outputFile, endpointsFiles, doc)
