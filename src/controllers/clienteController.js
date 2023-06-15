@@ -8,7 +8,7 @@ const cadastrarCliente = async (req, res, next) => {
 }
 
 const getCliente = async (req, res, next) => {
-  const retorno = await clienteService.getCliente()
+  const retorno = await clienteService.getCliente(req.query)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
