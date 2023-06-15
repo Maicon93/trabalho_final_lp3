@@ -72,7 +72,38 @@ const deleteComponentesProduto = async (params) => {
   }
 }
 
-module.exports.cadastrarComponentesProduto = cadastrarComponentesProduto
-module.exports.getComponentesProduto = getComponentesProduto
-module.exports.updateOrdemProducao = updateOrdemProducao
-module.exports.deleteComponentesProduto = deleteComponentesProduto
+const updateComponentesProduto = async (params) => {
+  try {
+    console.log(params)
+    if (!params?.id) {
+      return { type: 'error', msg: 'Informe os id da ordem de produção a ser alterado!' }
+    }
+
+    const alteracoes = []
+    params.id_produto && alteracoes.push(`id_produto = '${params.id_produto}'`)
+    params.quantidade && alteracoes.push(`quantidade = '${params.quantidade}'`)
+    params.id_componente && alteracoes.push(`id_componente = '${params.id_componente}'`)
+    params.observacao && alteracoes.push(`observacao = '${params.observacao}'`)
+
+    if (!alteracoes.length) {
+      return { type: 'error', msg: 'Informe os parametros do produto a ser alterado!' }
+    }
+    const updates = alteracoes.join(', ')
+
+    const sql = `update componentes_produto set ${updates} where id = ${params.id}`
+
+    await conn.execute(sql)
+
+    return { type: 'success', msg: 'alterado com sucesso' }
+  } catch (error) {
+    return { type: 'error', msg: error }
+  }
+}
+
+module.exports = {
+  cadastrarComponentesProduto,
+  getComponentesProduto,
+  updateOrdemProducao,
+  deleteComponentesProduto,
+  updateComponentesProduto
+}

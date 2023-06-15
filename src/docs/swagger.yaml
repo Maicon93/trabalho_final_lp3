@@ -66,11 +66,7 @@
     },
     "/delete-produto/{id}": {
       "delete": {
-        "tags": [
-          "Produto"
-        ],
-        "summary": "Delete Produto",
-        "description": "Teste de descricao",
+        "description": "",
         "parameters": [
           {
             "name": "id",

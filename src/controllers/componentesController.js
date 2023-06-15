@@ -28,7 +28,17 @@ const deleteComponentesProduto = async (req, res, next) => {
   res.status(status).send(retorno)
 }
 
-module.exports.cadastrarComponentesProduto = cadastrarComponentesProduto
-module.exports.getComponentesProduto = getComponentesProduto
-module.exports.updateOrdemProducao = updateOrdemProducao
-module.exports.deleteComponentesProduto = deleteComponentesProduto
+const updateComponentesProduto = async (req, res, next) => {
+  const retorno = await componentesService.updateComponentesProduto(req.body)
+  const status = retorno.type === 'success' ? 200 : 500
+
+  res.status(status).send(retorno)
+}
+
+module.exports = {
+  cadastrarComponentesProduto,
+  getComponentesProduto,
+  updateOrdemProducao,
+  deleteComponentesProduto,
+  updateComponentesProduto
+}

@@ -9,13 +9,5 @@ module.exports = (app) => {
   )
   app.get('/get-produto/', produto.getProduto)
   app.patch('/update-produto/', produto.updateProduto)
-  app.delete('/delete-produto/:id', produto.deleteProduto
-    /*#swagger.tags = ['Produto']
-    #swagger.summary = 'Delete Produto'
-    #swagger.description = 'Teste de descricao'
-    #swagger.responses:
-      '200':
-        description: OK
-    */
-  )
+  app.delete('/delete-produto/:id', produto.deleteProduto)
 }
