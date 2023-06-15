@@ -8,14 +8,7 @@ const cadastrarComponentesProduto = async (req, res, next) => {
 }
 
 const getComponentesProduto = async (req, res, next) => {
-  const retorno = await componentesService.getComponentesProduto()
-  const status = retorno.type === 'success' ? 200 : 500
-
-  res.status(status).send(retorno)
-}
-
-const updateOrdemProducao = async (req, res, next) => {
-  const retorno = await componentesService.updateOrdemProducao(req.body)
+  const retorno = await componentesService.getComponentesProduto(req.query)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
@@ -38,7 +31,6 @@ const updateComponentesProduto = async (req, res, next) => {
 module.exports = {
   cadastrarComponentesProduto,
   getComponentesProduto,
-  updateOrdemProducao,
   deleteComponentesProduto,
   updateComponentesProduto
 }

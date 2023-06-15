@@ -16,9 +16,10 @@ const cadastrarCliente = async (params) => {
   }
 }
 
-const getCliente = async () => {
+const getCliente = async (params) => {
   try {
-    const sql = 'select * from cliente'
+    const where = params.id ? `where id = ${params.id}` : ''
+    const sql = `select * from cliente ${where}`
     const { rows } = await conn.execute(sql)
     if (!rows.length) {
       return { type: 'info', msg: 'Nenhum registro retornado' }
@@ -72,7 +73,9 @@ const deleteCliente = async (params) => {
   }
 }
 
-module.exports.cadastrarCliente = cadastrarCliente
-module.exports.getCliente = getCliente
-module.exports.updateCliente = updateCliente
-module.exports.deleteCliente = deleteCliente
+module.exports = {
+  cadastrarCliente,
+  getCliente,
+  updateCliente,
+  deleteCliente,
+}
