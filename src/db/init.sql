@@ -46,3 +46,20 @@ CREATE TABLE itens_ordem_producao (
   FOREIGN KEY (id_ordem) REFERENCES ordem_producao (id),
   FOREIGN KEY (id_produto) REFERENCES produto (id)
 );
+
+-- Tabela "apontamentos"
+CREATE TABLE apontamentos (
+    id SERIAL PRIMARY KEY,
+    data DATE,
+    quantidade INTEGER,
+    id_componente INT NOT NULL, 
+    FOREIGN KEY (id_componente) REFERENCES produto (id) ,
+    FOREIGN KEY (id_ordem) REFERENCES ordem_producao (id)
+);
+
+-- Tabela "endereço"
+CREATE TABLE endereço (
+    id SERIAL PRIMARY KEY,
+    descricao TEXT,
+    status TEXT
+);
