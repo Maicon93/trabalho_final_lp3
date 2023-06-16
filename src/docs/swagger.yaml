@@ -20,11 +20,56 @@
   "paths": {
     "/cadastrar-produto/": {
       "post": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Cadastro de Produto",
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "descricao",
+            "in": "body",
+            "description": "Descricao do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Gaita"
+            }
+          },
+          {
+            "name": "cor",
+            "in": "body",
+            "description": "Cor do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Azul"
+            }
+          },
+          {
+            "name": "tipo_produto",
+            "in": "body",
+            "description": "Tipo do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Produto Acabado"
+            }
+          },
+          {
+            "name": "Origem",
+            "in": "body",
+            "description": "Origem do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Produção Própria"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successo"
           },
           "500": {
             "description": "Erro Interno do Servidor"
