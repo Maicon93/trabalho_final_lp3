@@ -31,3 +31,14 @@ cliente
   nome
   cidade
   data_nascimento
+
+
+
+select * from itens_ordem_producao
+select * from componentes_produto
+select * from produto
+select * from cliente
+select * from ordem_producao
+
+
+select current_date

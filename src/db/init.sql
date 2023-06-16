@@ -22,7 +22,7 @@ CREATE TABLE componentes_produto (
   id_produto INT NOT NULL,
   id_componente INT NOT NULL,
   quantidade INT NOT NULL,
-  observacao TEXT,
+  observacao VARCHAR(50),
   FOREIGN KEY (id_produto) REFERENCES produto (id)
 );
 
@@ -49,17 +49,18 @@ CREATE TABLE itens_ordem_producao (
 
 -- Tabela "apontamentos"
 CREATE TABLE apontamentos (
-    id SERIAL PRIMARY KEY,
-    data DATE,
-    quantidade INTEGER,
-    id_componente INT NOT NULL, 
-    FOREIGN KEY (id_componente) REFERENCES produto (id) ,
-    FOREIGN KEY (id_ordem) REFERENCES ordem_producao (id)
+  id SERIAL PRIMARY KEY,
+	id_ordem INT NOT NULL,
+  quantidade INT NOT NULL,
+  id_componente INT NOT NULL,
+  data DATE,
+  FOREIGN KEY (id_componente) REFERENCES produto (id) ,
+  FOREIGN KEY (id_ordem) REFERENCES ordem_producao (id)
 );
 
 -- Tabela "endereço"
 CREATE TABLE endereço (
-    id SERIAL PRIMARY KEY,
-    descricao TEXT,
-    status TEXT
+  id SERIAL PRIMARY KEY,
+  descricao VARCHAR(50),
+  status VARCHAR(50)
 );
