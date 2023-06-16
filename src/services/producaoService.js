@@ -16,9 +16,11 @@ const cadastrarOrdem = async (params) => {
   }
 }
 
-const getOrdemProducao = async () => {
+const getOrdemProducao = async (params) => {
   try {
-    const sql = 'select * from ordem_producao'
+    const where = params.id ? `where id = ${params.id}` : ''
+
+    const sql = `select * from ordem_producao ${where}`
     const { rows } = await conn.execute(sql)
     if (!rows.length) {
       return { type: 'info', msg: 'Nenhum registro retornado' }
