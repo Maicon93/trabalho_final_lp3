@@ -11,7 +11,7 @@ const cadastrarProduto = async (req, res, next) => {
 
 const getProduto = async (req, res, next) => {
   try {
-    const retorno = await produtoService.getProduto()
+    const retorno = await produtoService.getProduto(req.query)
     res.status(200).send(retorno)
   } catch (err) {
     res.status(500).send(err)

@@ -17,9 +17,14 @@ const cadastrarProduto = async (params) => {
   }
 }
 
-const getProduto = async () => {
+const getProduto = async (params) => {
   try {
-    const sql = 'select * from produto'
+    let where = 'where 1=1'
+    params.id && (where += ` and id = ${params.id}`);
+    params.descricao && (where += ` and descricao like ('%${params.descricao}%')`);
+
+    const sql = `select * from produto ${where}`
+
     const { rows } = await conn.execute(sql)
     if (!rows.length) {
       return { type: 'info', msg: 'Nenhum registro retornado' }

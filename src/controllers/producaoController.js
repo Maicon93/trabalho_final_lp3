@@ -8,7 +8,7 @@ const cadastrarOrdem = async (req, res, next) => {
 }
 
 const getOrdemProducao = async (req, res, next) => {
-  const retorno = await ordemService.getOrdemProducao()
+  const retorno = await ordemService.getOrdemProducao(req.query)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
