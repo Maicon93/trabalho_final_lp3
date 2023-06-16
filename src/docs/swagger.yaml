@@ -20,11 +20,7 @@
   "paths": {
     "/cadastrar-produto/": {
       "post": {
-        "tags": [
-          "Produto"
-        ],
-        "summary": "Cadastro de Produto",
-        "description": "Teste de descricao",
+        "description": "",
         "parameters": [],
         "responses": {
           "200": {

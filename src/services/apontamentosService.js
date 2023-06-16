@@ -2,11 +2,12 @@ const conn = require('../config/pg')
 
 const cadastrarProduto = async (params) => {
   try {
-    const sql =`insert into apontamentos (id, data, quantidade, id_componente, id_ordem)
+    const sql =`insert into apontamentos (data, quantidade, id_componente, id_ordem)
       values (
-        '${params.id_ordem}',
+        current_date,
+        '${params.quantidade}',
         '${params.id_componente}',
-        '${params.quantidade}'
+        '${params.id_ordem}'
       )`
 
     await conn.execute(sql)
@@ -16,9 +17,14 @@ const cadastrarProduto = async (params) => {
   }
 }
 
-const getProduto = async () => {
+const getApontamento = async () => {
   try {
-    const sql = 'select * from apontamentos'
+
+    let where = 'where 1=1'
+    params.id_ordem && (where += ` and id_ordem = ${params.id_ordem}`);
+    params.id_componente && (where += ` and id_componente = ${params.id_componente}`);
+
+    const sql = `select * from apontamentos ${where}`
     const { rows } = await conn.execute(sql)
     if (!rows.length) {
       return { type: 'info', msg: 'Nenhum registro retornado' }
@@ -30,50 +36,29 @@ const getProduto = async () => {
   }
 }
 
-const updateProduto = async (params) => {
-  try {
-    if (!params?.id) {
-      return { type: 'error', msg: 'Informe os id do produto a ser alterado!' }
-    }
 
-    const alteracoes = []
-    params.descricao && alteracoes.push(`descricao = '${params.descricao}'`)
-    params.cor && alteracoes.push(`cor = '${params.cor}'`)
-    params.tipo_produto && alteracoes.push(`tipo_produto = '${params.tipo_produto}'`)
-    params.origem && alteracoes.push(`tipo_produto = '${params.origem}'`)
-
-    if (!alteracoes.length) {
-      return { type: 'error', msg: 'Informe os parametros do produto a ser alterado!' }
-    }
-    const updates = alteracoes.join(', ')
-
-    const sql = `update produto set ${updates} where id = ${params.id}`
-
-
-    await conn.execute(sql)
-
-    return { type: 'success' }
-  } catch (error) {
-    return { type: 'error', msg: error }
-  }
-}
-
-const deleteProduto = async (params) => {
+const deleteApontamento = async (params) => {
   try {
     if (!params.id) {
-      return { type: 'info', msg: 'Informe o ID do produto que deseja deletar' }
+      return { type: 'info', msg: 'Informe o ID do produto  ou o id da ordem que deseja deletar' }
     }
 
-    const sql = `delete from produto where id = ${params.id}`
-    await conn.execute(sql)
+    let where = 'where 1=1'
+    params.id_ordem && (where += ` and id_ordem = ${params.id_ordem}`);
+    params.id_componente && (where += ` and id_componente = ${params.id_componente}`);
 
-    return { type: 'success', msg: 'Produto deletado com sucesso' }
+    const sql = `delete from apontamentos ${where}`
+    const { rows } = await conn.execute(sql)
+    if (!rows.length) {
+      return { type: 'info', msg: 'Nenhum registro retornado' }
+    }
+
+    return { type: 'success', msg: 'Registro deletado com sucesso' }
   } catch (error) {
     return { type: 'error', msg: error }
   }
 }
 
 module.exports.cadastrarProduto = cadastrarProduto
-module.exports.getProduto = getProduto
-module.exports.updateProduto = updateProduto
-module.exports.deleteProduto = deleteProduto
+module.exports.getApontamento = getApontamento
+module.exports.deleteApontamento = deleteApontamento

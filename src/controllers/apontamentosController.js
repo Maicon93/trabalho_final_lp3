@@ -1,4 +1,4 @@
-const apontamentoService = require('../services/clienteService')
+const apontamentoService = require('../services/apontamentosService')
 
 const inserirApontamentos = async (req, res, next) => {
   const retorno = await apontamentoService.inserirApontamentos(req.body)
