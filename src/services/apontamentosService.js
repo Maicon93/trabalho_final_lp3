@@ -2,12 +2,12 @@ const conn = require('../config/pg')
 
 const inserirApontamentos = async (params) => {
   try {
-    const sql =`insert into apontamentos (data, quantidade, id_componente, id_ordem)
+    const sql =`insert into apontamentos (id_ordem, quantidade, id_componente, data)
       values (
-        current_date,
-        '${params.quantidade}',
+        '${params.id_ordem}',
         '${params.id_componente}',
-        '${params.id_ordem}'
+        '${params.quantidade}',
+        current_date
       )`
 
     await conn.execute(sql)
