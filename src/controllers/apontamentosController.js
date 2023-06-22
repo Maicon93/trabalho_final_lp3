@@ -8,14 +8,14 @@ const inserirApontamentos = async (req, res, next) => {
 }
 
 const getApontamento = async (req, res, next) => {
-  const retorno = await apontamentoService.getApontamento()
+  const retorno = await apontamentoService.getApontamento(req.query)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
 }
 
 const deleteApontamentos = async (req, res, next) => {
-  const retorno = await apontamentoService.deleteApontamentos(req.params)
+  const retorno = await apontamentoService.deleteApontamentos(req.params.id)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)

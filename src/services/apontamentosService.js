@@ -1,6 +1,6 @@
 const conn = require('../config/pg')
 
-const cadastrarProduto = async (params) => {
+const inserirApontamentos = async (params) => {
   try {
     const sql =`insert into apontamentos (data, quantidade, id_componente, id_ordem)
       values (
@@ -17,9 +17,8 @@ const cadastrarProduto = async (params) => {
   }
 }
 
-const getApontamento = async () => {
+const getApontamento = async (params) => {
   try {
-
     let where = 'where 1=1'
     params.id_ordem && (where += ` and id_ordem = ${params.id_ordem}`);
     params.id_componente && (where += ` and id_componente = ${params.id_componente}`);
@@ -37,20 +36,12 @@ const getApontamento = async () => {
 }
 
 
-const deleteApontamento = async (params) => {
+const deleteApontamentos = async (id) => {
   try {
-    if (!params.id) {
-      return { type: 'info', msg: 'Informe o ID do produto  ou o id da ordem que deseja deletar' }
-    }
-
-    let where = 'where 1=1'
-    params.id_ordem && (where += ` and id_ordem = ${params.id_ordem}`);
-    params.id_componente && (where += ` and id_componente = ${params.id_componente}`);
-
-    const sql = `delete from apontamentos ${where}`
-    const { rows } = await conn.execute(sql)
-    if (!rows.length) {
-      return { type: 'info', msg: 'Nenhum registro retornado' }
+    const sql = `delete from apontamentos where id = ${id}`
+    const resp = await conn.execute(sql)
+    if (resp.rowCount == 0) {
+      return { type: 'info', msg: 'Nenhum registro deletado' }
     }
 
     return { type: 'success', msg: 'Registro deletado com sucesso' }
@@ -59,6 +50,6 @@ const deleteApontamento = async (params) => {
   }
 }
 
-module.exports.cadastrarProduto = cadastrarProduto
+module.exports.inserirApontamentos = inserirApontamentos
 module.exports.getApontamento = getApontamento
-module.exports.deleteApontamento = deleteApontamento
+module.exports.deleteApontamentos = deleteApontamentos
