@@ -36,9 +36,9 @@ const getProduto = async (params) => {
   }
 }
 
-const updateProduto = async (id, params) => {
+const updateProduto = async (params) => {
   try {
-    if (!id) {
+    if (!params.id) {
       return { type: 'error', msg: 'Informe os id do produto a ser alterado!' }
     }
 
@@ -46,14 +46,14 @@ const updateProduto = async (id, params) => {
     params.descricao && alteracoes.push(`descricao = '${params.descricao}'`)
     params.cor && alteracoes.push(`cor = '${params.cor}'`)
     params.tipo_produto && alteracoes.push(`tipo_produto = '${params.tipo_produto}'`)
-    params.origem && alteracoes.push(`tipo_produto = '${params.origem}'`)
+    params.origem && alteracoes.push(`origem = '${params.origem}'`)
 
     if (!alteracoes.length) {
       return { type: 'error', msg: 'Informe os parametros do produto a ser alterado!' }
     }
     const updates = alteracoes.join(', ')
 
-    const sql = `update produto set ${updates} where id = ${id}`
+    const sql = `update produto set ${updates} where id = ${params.id}`
 
 
     await conn.execute(sql)

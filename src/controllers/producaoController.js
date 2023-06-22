@@ -36,7 +36,7 @@ const cadastrarItensOrdem = async (req, res, next) => {
 }
 
 const getItensOrdem = async (req, res, next) => {
-  const retorno = await ordemService.getItensOrdem(req.query)
+  const retorno = await ordemService.getItensOrdem(req.params)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
@@ -44,13 +44,6 @@ const getItensOrdem = async (req, res, next) => {
 
 const deleteItensORdem = async (req, res, next) => {
   const retorno = await ordemService.deleteItensORdem(req.params)
-  const status = retorno.type === 'success' ? 200 : 500
-
-  res.status(status).send(retorno)
-}
-
-const updateItensOrdem = async (req, res, next) => {
-  const retorno = await ordemService.updateItensOrdem(req.body)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
@@ -66,6 +59,5 @@ module.exports = {
   updateOrdemProducao,
   deleteOrdemProducao,
   getItensOrdem,
-  deleteItensORdem,
-  updateItensOrdem
+  deleteItensORdem
 }

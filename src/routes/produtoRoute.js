@@ -43,27 +43,20 @@ module.exports = (app) => {
     }
     */
   )
-  app.put('/update-produto/:id', produto.updateProduto
+  app.patch('/update-produto/', produto.updateProduto
     /*#swagger.tags = ['Produto']
     #swagger.summary = 'Editar Produto'
-   #swagger.parameters['id'] = {
-        in: 'path',
-        description: "Código do Produto",
-        value: "1",
-        required: 'true'
-      }
-
-     #swagger.parameters['json'] = {
-        in: 'body',
-        description: 'Dados para alteração',
-        required: 'true',
-        type: 'json',
-        schema: {
-          "descricao": "Violão",
-          "cor": "Marom",
-          "tipo_produto": "Produto Feito",
-          "origem": "Produção Terceira"
-
+    #swagger.parameters['json'] = {
+      in: 'body',
+      description: 'Dados para alteração',
+      required: 'true',
+      type: 'json',
+      schema: {
+        "id": 3,
+        "descricao": "Notebook",
+        "cor": "Preto",
+        "tipo_produto": "Produto Acabado",
+        "origem": "Produção Própria"
       }
     }
 

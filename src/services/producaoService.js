@@ -123,31 +123,6 @@ const deleteItensORdem = async (params) => {
   }
 }
 
-const updateItensOrdem = async (params) => {
-  try {
-    if (!params?.id) {
-      return { type: 'error', msg: 'Informe os id do item a ser alterado!' }
-    }
-
-    const alteracoes = []
-    params.id_produto && alteracoes.push(`id_produto = '${params.id_produto}'`)
-    params.quantidade && alteracoes.push(`quantidade = '${params.quantidade}'`)
-
-    if (!alteracoes.length) {
-      return { type: 'error', msg: 'Informe os parametros a ser alterado!' }
-    }
-    const updates = alteracoes.join(', ')
-
-    const sql = `update itens_ordem_producao set ${updates} where id = ${params.id}`
-
-    await conn.execute(sql)
-
-    return { type: 'success' }
-  } catch (error) {
-    return { type: 'error', msg: error }
-  }
-}
-
 
 
 module.exports = {
@@ -157,6 +132,5 @@ module.exports = {
   updateOrdemProducao,
   deleteOrdemProducao,
   getItensOrdem,
-  deleteItensORdem,
-  updateItensOrdem
+  deleteItensORdem
 }
