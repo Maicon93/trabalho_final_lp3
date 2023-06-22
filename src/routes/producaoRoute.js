@@ -3,7 +3,7 @@ const producao = require('../controllers/producaoController');
 module.exports = (app) => {
   app.post('/cadastrar-ordem-producao/', producao.cadastrarOrdem
     /*
-    #swagger.tags = ['Ordem']
+    #swagger.tags = ['Produção']
     #swagger.summary = 'Cadastrar Cliente'
     #swagger.parameters['json'] = {
       in:'body',
@@ -17,15 +17,15 @@ module.exports = (app) => {
         "data_nascimento": "2001-09-15"
 
       }
-    }      
-  
+    }
+
     #swagger.responses[201] = {
         description: 'Successo'
     }
     */
   )
   app.get('/get-ordem-producao/', producao.getOrdemProducao
-      /*#swagger.tags = ['Ordem']
+    /*#swagger.tags = ['Produção']
     #swagger.summary = 'Buscar Ordem'
    #swagger.parameters['id'] = {
         description: "Código da Ordem",
@@ -39,7 +39,7 @@ module.exports = (app) => {
     */
   )
   app.patch('/update-ordem-producao/', producao.updateOrdemProducao
-        /*#swagger.tags = ['Ordem']
+    /*#swagger.tags = ['Produção']
     #swagger.summary = 'Editar Ordem'
     #swagger.parameters['id_produto'] = {
       in: 'body',
@@ -75,7 +75,7 @@ module.exports = (app) => {
     */
   )
   app.delete('/delete-ordem-producao/:id', producao.deleteOrdemProducao
-        /*#swagger.tags = ['Ordem']
+    /*#swagger.tags = ['Produção']
     #swagger.summary = 'Excluir Ordem
     #swagger.parameters['id'] = {
       in: 'body',
@@ -93,7 +93,7 @@ module.exports = (app) => {
 
   app.post('/cadastrar-itens-ordem/', producao.cadastrarItensOrdem
     /*
-    #swagger.tags = ['Item da Ordem']
+    #swagger.tags = ['Produção']
     #swagger.summary = 'Cadastrar Cliente'
     #swagger.parameters['json'] = {
       in:'body',
@@ -107,15 +107,15 @@ module.exports = (app) => {
         "data_nascimento": "2001-09-15"
 
       }
-    }      
-  
+    }
+
     #swagger.responses[201] = {
         description: 'Successo'
     }
     */
   )
   app.get('/get-itens-ordem/', producao.getItensOrdem
-      /*#swagger.tags = ['Item da Ordem']
+    /*#swagger.tags = ['Produção']
     #swagger.summary = 'Buscar Item da Ordem'
    #swagger.parameters['id'] = {
         description: "Código do Item na Ordem",
@@ -129,7 +129,7 @@ module.exports = (app) => {
     */
   )
   app.patch('/update-itens-ordem/', producao.updateItensOrdem
-        /*#swagger.tags = ['Produção']
+    /*#swagger.tags = ['Produção']
     #swagger.summary = 'Editar item da Ordem'
     #swagger.parameters['id_produto'] = {
       in: 'body',
@@ -151,7 +151,7 @@ module.exports = (app) => {
     */
   )
   app.delete('/delete-item-ordem/:id', producao.deleteItensORdem
-          /*#swagger.tags = ['Item da Ordem']
+    /*#swagger.tags = ['Produção']
     #swagger.summary = 'Excluir item da Ordem'
     #swagger.parameters['id'] = {
       in: 'body',

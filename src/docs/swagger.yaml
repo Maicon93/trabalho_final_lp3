@@ -572,7 +572,7 @@
     "/cadastrar-ordem-producao/": {
       "post": {
         "tags": [
-          "Ordem"
+          "Produção"
         ],
         "summary": "Cadastrar Cliente",
         "description": "",
@@ -615,7 +615,7 @@
     "/get-ordem-producao/": {
       "get": {
         "tags": [
-          "Ordem"
+          "Produção"
         ],
         "summary": "Buscar Ordem",
         "description": "",
@@ -639,7 +639,7 @@
     "/update-ordem-producao/": {
       "patch": {
         "tags": [
-          "Ordem"
+          "Produção"
         ],
         "summary": "Editar Ordem",
         "description": "",
@@ -695,7 +695,7 @@
     "/delete-ordem-producao/{id}": {
       "delete": {
         "tags": [
-          "Ordem"
+          "Produção"
         ],
         "summary": "Excluir Ordem",
         "description": "",
@@ -727,7 +727,7 @@
     "/cadastrar-itens-ordem/": {
       "post": {
         "tags": [
-          "Item da Ordem"
+          "Produção"
         ],
         "summary": "Cadastrar Cliente",
         "description": "",
@@ -770,7 +770,7 @@
     "/get-itens-ordem/": {
       "get": {
         "tags": [
-          "Item da Ordem"
+          "Produção"
         ],
         "summary": "Buscar Item da Ordem",
         "description": "",
@@ -830,7 +830,7 @@
     "/delete-item-ordem/{id}": {
       "delete": {
         "tags": [
-          "Item da Ordem"
+          "Produção"
         ],
         "summary": "Excluir item da Ordem",
         "description": "",
