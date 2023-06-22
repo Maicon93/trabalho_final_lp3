@@ -15,7 +15,6 @@ const getCliente = async (req, res, next) => {
 }
 
 const updateCliente = async (req, res, next) => {
-  console.dir(req.params)
   const retorno = await clienteService.updateCliente(req.body)
 
   const status = retorno.type === 'success' ? 200 : 500

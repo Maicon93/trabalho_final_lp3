@@ -13,7 +13,7 @@ module.exports = (app) => {
         "id_produto": 1,
         "quantidade": 10,
         "id_cliente": 1,
-        "data_entrega": "2023-09-05T03:00:00.000Z"
+        "data_entrega": "2023-09-05"
       }
     }
 

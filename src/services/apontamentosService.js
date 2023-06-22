@@ -21,7 +21,6 @@ const getApontamento = async (params) => {
   try {
     let where = 'where 1=1'
     params.id_ordem && (where += ` and id_ordem = ${params.id_ordem}`);
-    params.id_componente && (where += ` and id_componente = ${params.id_componente}`);
 
     const sql = `select * from apontamentos ${where}`
     const { rows } = await conn.execute(sql)

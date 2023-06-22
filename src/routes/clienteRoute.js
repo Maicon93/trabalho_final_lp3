@@ -64,12 +64,6 @@ module.exports = (app) => {
   app.delete('/delete-cliente/:id', cliente.deleteCliente
     /*#swagger.tags = ['Cliente']
     #swagger.summary = 'Exluir Cliente'
-   #swagger.parameters['id'] = {
-        in: 'path',
-        description: "Código do Cliente",
-        value: "1",
-        required: 'true'
-      }
     #swagger.responses[200] = {
         description: 'Successo'
     }

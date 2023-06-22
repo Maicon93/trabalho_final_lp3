@@ -23,8 +23,8 @@ module.exports = (app) => {
   app.get('/get-apontamento/', apontamento.getApontamento
     /* #swagger.tags = ['Apontamentos']
       #swagger.summary = 'Buscar Cliente'
-      #swagger.parameters['id'] = {
-            description: "Id",
+      #swagger.parameters['id_ordem'] = {
+            description: "ID ordem",
             value: "1",
             required: 'false'
           }

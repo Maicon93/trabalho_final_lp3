@@ -302,9 +302,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "Código do Cliente",
-            "value": "1"
+            "type": "string"
           }
         ],
         "responses": {
@@ -362,8 +360,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
-            "description": "Id",
+            "name": "id_ordem",
+            "description": "ID ordem",
             "value": "1",
             "required": false,
             "in": "query",
@@ -563,7 +561,7 @@
                 },
                 "data_entrega": {
                   "type": "string",
-                  "example": "2023-09-05T03:00:00.000Z"
+                  "example": "2023-09-05"
                 }
               }
             }
