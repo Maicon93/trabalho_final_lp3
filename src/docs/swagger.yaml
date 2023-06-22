@@ -220,49 +220,49 @@
     "/cadastrar-cliente/": {
       "post": {
         "tags": [
-          "Produto"
+          "Cliente"
         ],
-        "summary": "Cadastro de Produto",
+        "summary": "Cadastro de Cliente",
         "description": "",
         "parameters": [
           {
             "name": "cpf",
             "in": "body",
-            "description": "Descricao do produto...",
+            "description": "CPF do Cliente...",
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Gaita"
+              "example": "125.026.548.50"
             }
           },
           {
             "name": "nome",
             "in": "body",
-            "description": "Cor do produto...",
+            "description": "Nome do Cliente...",
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Azul"
+              "example": "Willian"
             }
           },
           {
             "name": "cidade",
             "in": "body",
-            "description": "Tipo do produto...",
+            "description": "Cidade onde cliente esta morando...",
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Produto Acabado"
+              "example": "Saudades"
             }
           },
           {
             "name": "data_nascimento",
             "in": "body",
-            "description": "Origem do produto...",
+            "description": "Data de Nascimento do Cliente...",
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Produção Própria"
+              "example": "2001/09/15"
             }
           }
         ],
@@ -275,20 +275,102 @@
     },
     "/get-cliente/": {
       "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Buscar Cliente",
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "ID sequencial...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
       }
     },
     "/update-cliente/": {
       "patch": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Editar Produto",
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "ID sequencial...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "cpf",
+            "in": "body",
+            "description": "CPF do Cliente...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "125.026.548.50"
+            }
+          },
+          {
+            "name": "nome",
+            "in": "body",
+            "description": "Nome do Cliente...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Willian"
+            }
+          },
+          {
+            "name": "cidade",
+            "in": "body",
+            "description": "Cidade onde cliente esta morando...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Saudades"
+            }
+          },
+          {
+            "name": "data_nascimento",
+            "in": "body",
+            "description": "Data de Nascimento do Cliente...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2001/09/15"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
       }
     },
     "/delete-cliente/{id}": {
       "delete": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Deletar Cliente",
         "description": "",
         "parameters": [
           {
@@ -296,9 +378,647 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "body",
+            "required": true,
+            "description": "ID sequencial...",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/inserir-apontamento/": {
+      "post": {
+        "tags": [
+          "Apontamentos"
+        ],
+        "summary": "Inserir apontamento",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "Sequencial do apontamento...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "id_ordem",
+            "in": "body",
+            "description": "Código da Ordem...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "99775548"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "body",
+            "description": "Quantidade do item que vai apontar...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          },
+          {
+            "name": "id_componente",
+            "in": "body",
+            "description": "ID do componente para apontar...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "description": "Data do apontamento...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2023-06-19"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/get-apontamento/": {
+      "get": {
+        "tags": [
+          "Apontamentos"
+        ],
+        "summary": "Buscar apontamento",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_componente",
+            "in": "body",
+            "description": "ID do componente para buscar...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "id_ordem",
+            "in": "body",
+            "description": "Código da Ordem para buscar...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "99775548"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/delete-apontamento/{id}": {
+      "delete": {
+        "tags": [
+          "Apontamentos"
+        ],
+        "summary": "Deletar apontamento",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id_componente",
+            "in": "body",
+            "description": "ID do componente para deletar...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "id_ordem",
+            "in": "body",
+            "description": "Código da Ordem...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "99775548"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/cadastrar-componentes-produto/": {
+      "post": {
+        "tags": [
+          "Componentes"
+        ],
+        "summary": "Cadastro de Produto",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_produto",
+            "in": "body",
+            "description": "Código do produto acabado...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "14"
+            }
+          },
+          {
+            "name": "id_componente",
+            "in": "body",
+            "description": "Código do componente...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "36"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "body",
+            "description": "Quantidade...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          },
+          {
+            "name": "observacao",
+            "in": "body",
+            "description": "Breve observação do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Feito por negros"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/get-componentes-produto/": {
+      "get": {
+        "tags": [
+          "Componentes"
+        ],
+        "summary": "Cadastro de Cliente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_produto",
+            "in": "body",
+            "description": "Código do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/update-componentes-produto/": {
+      "patch": {
+        "tags": [
+          "Componentes"
+        ],
+        "summary": "Editar Componente do Produto",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_produto",
+            "in": "body",
+            "description": "Código do produto acabado...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "14"
+            }
+          },
+          {
+            "name": "id_componente",
+            "in": "body",
+            "description": "Código do componente...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "36"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "body",
+            "description": "Quantidade...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          },
+          {
+            "name": "observacao",
+            "in": "body",
+            "description": "Breve observação do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Feito por negros"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/delete-componentes-produto/{id}": {
+      "delete": {
+        "tags": [
+          "Componentes"
+        ],
+        "summary": "Deletar Componente da Produto",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "body",
+            "required": true,
+            "description": "sequencial do componente...",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/cadastrar-ordem-producao/": {
+      "post": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Inserir Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_produto",
+            "in": "body",
+            "description": "Código do produto acabado...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "14"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "body",
+            "description": "Quantidade...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          },
+          {
+            "name": "id_cliente",
+            "in": "body",
+            "description": "Código do Cliente...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "256365"
+            }
+          },
+          {
+            "name": "data_entrega",
+            "in": "body",
+            "description": "Data de Entrega...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2023/06/20"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/get-ordem-producao/": {
+      "get": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Buscar Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "Código da Ordem...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/update-ordem-producao/": {
+      "patch": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Editar Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_produto",
+            "in": "body",
+            "description": "Código do produto acabado...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "14"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "body",
+            "description": "Quantidade...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          },
+          {
+            "name": "id_cliente",
+            "in": "body",
+            "description": "Código do Cliente...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "256365"
+            }
+          },
+          {
+            "name": "data_entrega",
+            "in": "body",
+            "description": "Data de Entrega...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2023/06/20"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/delete-ordem-producao/{id}": {
+      "delete": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Excluir Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "body",
+            "required": true,
+            "description": "Código da Ordem...",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/cadastrar-itens-ordem/": {
+      "post": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Inserir Iten na Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_ordem",
+            "in": "body",
+            "description": "Código da Ordem...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "23658"
+            }
+          },
+          {
+            "name": "id_produto",
+            "in": "body",
+            "description": "Código do Produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "36"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "body",
+            "description": "Quantidade...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/get-itens-ordem/": {
+      "get": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Buscar Item da Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_ordem",
+            "in": "body",
+            "description": "Código da Ordem...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "23658"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/update-itens-ordem/": {
+      "patch": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Editar item da Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id_produto",
+            "in": "body",
+            "description": "Código do Produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "36"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "body",
+            "description": "Quantidade...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "10"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
+      }
+    },
+    "/delete-item-ordem/{id}": {
+      "delete": {
+        "tags": [
+          "Produção"
+        ],
+        "summary": "Excluir item da Ordem",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "body",
+            "required": true,
+            "description": "Código da Ordem...",
+            "schema": {
+              "type": "string",
+              "example": "23658"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
       }
     }
   }

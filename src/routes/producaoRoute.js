@@ -2,7 +2,7 @@ const producao = require('../controllers/producaoController');
 
 module.exports = (app) => {
   app.post('/cadastrar-ordem-producao/', producao.cadastrarOrdem
-      /*#swagger.tags = ['Produção']
+    /*#swagger.tags = ['Produção']
     #swagger.summary = 'Inserir Ordem'
     #swagger.parameters['id_produto'] = {
       in: 'body',
@@ -183,11 +183,11 @@ module.exports = (app) => {
       required: 'true',
       schema: '23658'
     }
-    
+
     #swagger.responses[200] = {
         description: 'Successo'
     }
     */
   )
-  
+
 }
