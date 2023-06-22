@@ -4,116 +4,83 @@ module.exports = (app) => {
   app.post('/cadastrar-produto/', produto.cadastrarProduto
     /*#swagger.tags = ['Produto']
     #swagger.summary = 'Cadastro de Produto'
-    #swagger.parameters['descricao'] = {
+    #swagger.parameters['json'] = {
       in: 'body',
-      type: 'string',
-      description: 'Descricao do produto...',
+      description: 'Cadastrar Produto...',
       required: 'true',
-      schema: 'Gaita'
-    }
-    #swagger.parameters['cor'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Cor do produto...',
-      required: 'true',
-      schema: 'Azul'
-    }
-    #swagger.parameters['tipo_produto'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Tipo do produto...',
-      required: 'true',
-      schema: 'Produto Acabado'
-    }
-    #swagger.parameters['Origem'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Origem do produto...',
-      required: 'true',
-      schema: 'Produção Própria'
-    }
-    #swagger.responses[200] = {
+      type: 'json',
+      schema: {
+        "descricao": "Gaita",
+        "cor": "Azul",
+        "tipo_produto": "Produto Acabado",
+        "origem": "Produção Própria"
+
+      }
+    }      
+    #swagger.responses[201] = {
         description: 'Successo'
     }
-    */
+    */  
   )
-  app.get('/get-produto/', produto.getProduto
+  app.get('/get-produto/:id', produto.getProduto
       /*#swagger.tags = ['Produto']
     #swagger.summary = 'Buscar de Produto'
-    #swagger.parameters['id'] = {
-      in: 'body',
-      type: 'INT',
-      description: 'Código do produto...',
-      required: 'true',
-      schema: '1'
-    }
-    #swagger.parameters['descricao'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Descricao do produto...',
-      required: 'true',
-      schema: 'Gaita'
-    }
+   #swagger.parameters['id'] = {
+        description: "Código do Produto",
+        value: "1",
+        required: 'true'
+      }
+   #swagger.parameters['descricao'] = {
+        description: "Descrição do Produto",
+        value: "Gaita",
+        required: 'true'
+      }
 
     #swagger.responses[200] = {
         description: 'Successo'
     }
     */
   )
-  app.patch('/update-produto/', produto.updateProduto
-        /*#swagger.tags = ['Produto']
-    #swagger.summary = 'Alterar Produto'
-    #swagger.parameters['id'] = {
-      in: 'body',
-      type: 'INT',
-      description: 'Código do produto...',
-      required: 'true',
-      schema: '1'
+  app.put('/update-produto/:id', produto.updateProduto
+    /*#swagger.tags = ['Produto']
+    #swagger.summary = 'Editar Produto'
+   #swagger.parameters['id'] = {
+        in: 'path',
+        description: "Código do Produto",
+        value: "1",
+        required: 'true'
+      }    
+    
+     #swagger.parameters['json'] = {
+        in: 'body',
+        description: 'Dados para alteração',
+        required: 'true',
+        type: 'json',
+        schema: {
+          "descricao": "Violão",
+          "cor": "Marom",
+          "tipo_produto": "Produto Feito",
+          "origem": "Produção Terceira"
+
+      }
     }
-    #swagger.parameters['descricao'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Descricao do produto...',
-      required: 'true',
-      schema: 'Gaita'
-    }
-    #swagger.parameters['cor'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Cor do produto...',
-      required: 'true',
-      schema: 'Azul'
-    }
-    #swagger.parameters['tipo_produto'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Tipo do produto...',
-      required: 'true',
-      schema: 'Produto Acabado'
-    }
-    #swagger.parameters['Origem'] = {
-      in: 'body',
-      type: 'string',
-      description: 'Origem do produto...',
-      required: 'true',
-      schema: 'Produção Própria'
-    }
+    
     #swagger.responses[200] = {
         description: 'Successo'
     }
     */
   )
   app.delete('/delete-produto/:id', produto.deleteProduto
-          /*#swagger.tags = ['Produto']
-    #swagger.summary = 'Deletar de Produto'
-    #swagger.parameters['id'] = {
-      in: 'body',
-      type: 'INT',
-      description: 'Código do produto...',
-      required: 'true',
-      schema: '1'
-    }
-
+    /*#swagger.tags = ['Produto']
+    #swagger.summary = 'Exluir Produto'
+   #swagger.parameters['id'] = {
+        in: 'path',
+        description: "Código do Produto",
+        value: "1",
+        required: 'true'
+      }    
+  
+    
     #swagger.responses[200] = {
         description: 'Successo'
     }

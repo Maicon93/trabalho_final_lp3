@@ -15,14 +15,16 @@ const getCliente = async (req, res, next) => {
 }
 
 const updateCliente = async (req, res, next) => {
-  const retorno = await clienteService.updateCliente(req.body)
+  console.dir(req.params)
+  const retorno = await clienteService.updateCliente(req.params.id ,req.body)
+
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
 }
 
 const deleteCliente = async (req, res, next) => {
-  const retorno = await clienteService.deleteCliente(req.params)
+  const retorno = await clienteService.deleteCliente(req.params.id, req.params)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)

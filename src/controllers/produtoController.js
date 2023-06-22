@@ -19,8 +19,9 @@ const getProduto = async (req, res, next) => {
 }
 
 const updateProduto = async (req, res, next) => {
+  console.dir(req.params)
   try {
-    const retorno = await produtoService.updateProduto(req.body)
+    const retorno = await produtoService.updateProduto(req.params.id, req.body)
     res.status(200).send(retorno)
   } catch (err) {
     res.status(500).send(err)
@@ -28,7 +29,7 @@ const updateProduto = async (req, res, next) => {
 }
 
 const deleteProduto = async (req, res, next) => {
-  const retorno = await produtoService.deleteProduto(req.params)
+  const retorno = await produtoService.deleteProduto(req.params.id, req.params)
   const status = retorno.type === 'success' ? 200 : 500
 
   res.status(status).send(retorno)
