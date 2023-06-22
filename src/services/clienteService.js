@@ -33,7 +33,7 @@ const getCliente = async (params) => {
 
 const updateCliente = async (params) => {
   try {
-    if (!params?.id) {
+    if (!params.id) {
       return { type: 'error', msg: 'Informe os id do cliente a ser alterado!' }
     }
 
@@ -58,13 +58,13 @@ const updateCliente = async (params) => {
   }
 }
 
-const deleteCliente = async (params) => {
+const deleteCliente = async (id,params) => {
   try {
-    if (!params.id) {
+    if (!id) {
       return { type: 'info', msg: 'Informe o ID do cliente que deseja deletar' }
     }
 
-    const sql = `delete from cliente where id = ${params.id}`
+    const sql = `delete from cliente where id = ${id}`
     await conn.execute(sql)
 
     return { type: 'success', msg: 'Cliente deletado com sucesso' }

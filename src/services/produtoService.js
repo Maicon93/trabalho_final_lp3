@@ -36,9 +36,9 @@ const getProduto = async (params) => {
   }
 }
 
-const updateProduto = async (params) => {
+const updateProduto = async (id, params) => {
   try {
-    if (!params?.id) {
+    if (!id) {
       return { type: 'error', msg: 'Informe os id do produto a ser alterado!' }
     }
 
@@ -53,7 +53,7 @@ const updateProduto = async (params) => {
     }
     const updates = alteracoes.join(', ')
 
-    const sql = `update produto set ${updates} where id = ${params.id}`
+    const sql = `update produto set ${updates} where id = ${id}`
 
 
     await conn.execute(sql)
@@ -64,13 +64,13 @@ const updateProduto = async (params) => {
   }
 }
 
-const deleteProduto = async (params) => {
+const deleteProduto = async (id, params) => {
   try {
-    if (!params.id) {
+    if (!id) {
       return { type: 'info', msg: 'Informe o ID do produto que deseja deletar' }
     }
 
-    const sql = `delete from produto where id = ${params.id}`
+    const sql = `delete from produto where id = ${id}`
     await conn.execute(sql)
 
     return { type: 'success', msg: 'Produto deletado com sucesso' }
