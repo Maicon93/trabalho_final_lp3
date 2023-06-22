@@ -79,11 +79,36 @@
     },
     "/get-produto/": {
       "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Buscar de Produto",
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "Código do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "descricao",
+            "in": "body",
+            "description": "Descricao do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Gaita"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successo"
           },
           "500": {
             "description": "Erro Interno do Servidor"
@@ -93,11 +118,66 @@
     },
     "/update-produto/": {
       "patch": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Alterar Produto",
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "Código do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
+          },
+          {
+            "name": "descricao",
+            "in": "body",
+            "description": "Descricao do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Gaita"
+            }
+          },
+          {
+            "name": "cor",
+            "in": "body",
+            "description": "Cor do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Azul"
+            }
+          },
+          {
+            "name": "tipo_produto",
+            "in": "body",
+            "description": "Tipo do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Produto Acabado"
+            }
+          },
+          {
+            "name": "Origem",
+            "in": "body",
+            "description": "Origem do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Produção Própria"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successo"
           },
           "500": {
             "description": "Erro Interno do Servidor"
@@ -107,6 +187,10 @@
     },
     "/delete-produto/{id}": {
       "delete": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Deletar de Produto",
         "description": "",
         "parameters": [
           {
@@ -114,16 +198,79 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "body",
+            "required": true,
+            "description": "Código do produto...",
+            "schema": {
+              "type": "string",
+              "example": "1"
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
       }
     },
     "/cadastrar-cliente/": {
       "post": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Cadastro de Produto",
         "description": "",
-        "parameters": [],
-        "responses": {}
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "body",
+            "description": "Descricao do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Gaita"
+            }
+          },
+          {
+            "name": "nome",
+            "in": "body",
+            "description": "Cor do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Azul"
+            }
+          },
+          {
+            "name": "cidade",
+            "in": "body",
+            "description": "Tipo do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Produto Acabado"
+            }
+          },
+          {
+            "name": "data_nascimento",
+            "in": "body",
+            "description": "Origem do produto...",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Produção Própria"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successo"
+          }
+        }
       }
     },
     "/get-cliente/": {
