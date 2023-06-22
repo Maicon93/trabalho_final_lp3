@@ -9,7 +9,7 @@ module.exports = (app) => {
       type: 'string',
       description: 'Descricao do produto...',
       required: 'true',
-      schema: 'Gaita'
+      schema: 'Computador'
     }
     #swagger.parameters['cor'] = {
       in: 'body',
@@ -25,7 +25,7 @@ module.exports = (app) => {
       required: 'true',
       schema: 'Produto Acabado'
     }
-    #swagger.parameters['Origem'] = {
+    #swagger.parameters['origem'] = {
       in: 'body',
       type: 'string',
       description: 'Origem do produto...',
@@ -33,26 +33,26 @@ module.exports = (app) => {
       schema: 'Produção Própria'
     }
     #swagger.responses[200] = {
-        description: 'Successo'
+      description: 'Successo'
     }
     */
   )
   app.get('/get-produto/', produto.getProduto
-      /*#swagger.tags = ['Produto']
+    /*#swagger.tags = ['Produto']
     #swagger.summary = 'Buscar de Produto'
     #swagger.parameters['id'] = {
-      in: 'body',
+      in: 'query',
       type: 'INT',
       description: 'Código do produto...',
-      required: 'true',
+      required: 'false',
       schema: '1'
     }
     #swagger.parameters['descricao'] = {
-      in: 'body',
+      in: 'query',
       type: 'string',
       description: 'Descricao do produto...',
-      required: 'true',
-      schema: 'Gaita'
+      required: 'false',
+      schema: 'Not'
     }
 
     #swagger.responses[200] = {

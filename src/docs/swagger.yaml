@@ -33,7 +33,7 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "Gaita"
+              "example": "Computador"
             }
           },
           {
@@ -57,7 +57,7 @@
             }
           },
           {
-            "name": "Origem",
+            "name": "origem",
             "in": "body",
             "description": "Origem do produto...",
             "required": true,
@@ -87,9 +87,10 @@
         "parameters": [
           {
             "name": "id",
-            "in": "body",
+            "in": "query",
+            "type": "INT",
             "description": "Código do produto...",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
               "example": "1"
@@ -97,12 +98,13 @@
           },
           {
             "name": "descricao",
-            "in": "body",
+            "in": "query",
+            "type": "string",
             "description": "Descricao do produto...",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string",
-              "example": "Gaita"
+              "example": "Not"
             }
           }
         ],

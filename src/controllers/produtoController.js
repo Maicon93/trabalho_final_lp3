@@ -2,9 +2,12 @@ const produtoService = require('../services/produtoService')
 
 const cadastrarProduto = async (req, res, next) => {
   try {
+    console.log('#######')
+    console.log(req.body)
     const retorno = await produtoService.cadastrarProduto(req.body)
     res.status(200).send(retorno)
   } catch (err) {
+    console.log('********')
     res.status(500).send(err)
   }
 }
